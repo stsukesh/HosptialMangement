@@ -23,6 +23,11 @@ default: &default
 development:
   <<: *default
   database: hosptial_mangement_development
+  username: postgres         # <- Your local PostgreSQL username (usually "postgres")
+  password: root             # <- Your PostgreSQL password (default might be "root")
+  host: localhost            # <- Required on Windows
+  port: 5432
+
 
   # The specified database role being used to connect to PostgreSQL.
   # To create additional roles in PostgreSQL see `$ createuser --help`.
@@ -57,6 +62,11 @@ development:
 test:
   <<: *default
   database: hosptial_mangement_test
+  username: postgres
+  password: root
+  host: localhost
+  port: 5432
+
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -83,7 +93,7 @@ production:
     <<: *default
     database: hosptial_mangement_production
     username: hosptial_mangement
-    password: <%= ENV["HOSPTIAL_MANGEMENT_DATABASE_PASSWORD"] %>
+    password: root
   cache:
     <<: *primary_production
     database: hosptial_mangement_production_cache
